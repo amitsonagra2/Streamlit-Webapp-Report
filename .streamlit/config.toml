@@ -1,0 +1,19 @@
+[theme]
+
+# primary color of interactive elements
+
+primaryColor = "#d33682"
+
+# background color for main content area
+
+backBroundColor = "#002b36"
+
+# background color for widgets
+
+secondaryBackgroundColor = "#586e75"
+
+# text color
+textColor = "#fafafa"
+
+# font family
+font = "sans serif"
