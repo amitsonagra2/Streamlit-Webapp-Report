@@ -7,7 +7,10 @@ from datetime import datetime
 from streamlit_option_menu import option_menu
 import database as db
 
+# stramlit
 # https://www.youtube.com/watch?v=3egaMfE9388&ab_channel=CodingIsFun
+# render
+# https://www.youtube.com/watch?v=4SO3CUWPYf0&ab_channel=CodingIsFun
 
 # --------------------------------settings
 Make = ['Honda','Toyota','Ford','Mazda','Chevrolet','Pontiac','Accura',
