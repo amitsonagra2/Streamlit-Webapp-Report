@@ -7,6 +7,8 @@ from datetime import datetime
 from streamlit_option_menu import option_menu
 import database as db
 
+# live here 
+# https://deploying-ml-model-on-render-v1.onrender.com/
 # stramlit
 # https://www.youtube.com/watch?v=3egaMfE9388&ab_channel=CodingIsFun
 # render
@@ -191,7 +193,7 @@ df_model["AccidentArea_"+str(AccidentArea)] = 1
 # df_model
 
 import pickle
-pkl = open("./Xgboost.pkl",'rb')
+pkl = open("Xgboost.pkl",'rb')
 model = pickle.load(pkl)
 
 
