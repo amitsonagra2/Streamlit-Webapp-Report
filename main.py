@@ -156,41 +156,43 @@ cols = ['Make_Accura', 'Make_BMW', 'Make_Chevrolet', 'Make_Dodge',
        'NumberOfCars_more than 8', 'BasePolicy_All Perils',
        'BasePolicy_Collision', 'BasePolicy_Liability']
 
-df_model = pd.DataFrame(columns=cols)
-df_model.loc[0] = 66*[0]
+def temp_table():
+    df_model = pd.DataFrame(columns=cols)
+    df_model.loc[0] = 66*[0]
 
-df_model["Make_"+str(Make)] = 1
-df_model["BasePolicy_"+str(BasePolicy)] = 1
-df_model["Fault_"+str(Fault)] = 1
+    df_model["Make_"+str(Make)] = 1
+    df_model["BasePolicy_"+str(BasePolicy)] = 1
+    df_model["Fault_"+str(Fault)] = 1
 
-df_model["VehicleCategory_"+str(VehicleCategory)] = 1
-df_model["VehiclePrice_"+str(VehiclePrice)] = 1
-df_model["Deductible_"+str(Deductible)] = 1
+    df_model["VehicleCategory_"+str(VehicleCategory)] = 1
+    df_model["VehiclePrice_"+str(VehiclePrice)] = 1
+    df_model["Deductible_"+str(Deductible)] = 1
 
-df_model["PastNumberOfClaims_"+(str(PastNumberOfClaims)).lower()] = 1
+    df_model["PastNumberOfClaims_"+(str(PastNumberOfClaims)).lower()] = 1
 
-df_model["AgeOfVehicle_"+str(AgeOfVehicle).lower()] = 1
+    df_model["AgeOfVehicle_"+str(AgeOfVehicle).lower()] = 1
 
-df_model["PoliceReportFiled_"+str(PoliceReportFiled)] = 1
+    df_model["PoliceReportFiled_"+str(PoliceReportFiled)] = 1
 
-df_model["WitnessPresent_"+str(WitnessPresent)] = 1
-df_model["AgentType_"+str(AgentType)] = 1
+    df_model["WitnessPresent_"+str(WitnessPresent)] = 1
+    df_model["AgentType_"+str(AgentType)] = 1
 
+    df_model["NumberOfSuppliments_"+str(NumberOfSuppliments).lower()] = 1
 
-df_model["NumberOfSuppliments_"+str(NumberOfSuppliments).lower()] = 1
+    if NumberOfCars == "1":
+        df_model["NumberOfCars_1 vehicle"] = 1
+    elif NumberOfCars == "2":
+        df_model["NumberOfCars_2 vehicles"] = 1
+    else:
+        df_model["NumberOfCars_"+str(NumberOfCars).lower()] = 1
 
-if NumberOfCars == "1":
-    df_model["NumberOfCars_1 vehicle"] = 1
-elif NumberOfCars == "2":
-    df_model["NumberOfCars_2 vehicles"] = 1
-else:
-    df_model["NumberOfCars_"+str(NumberOfCars).lower()] = 1
-
-
-df_model["AccidentArea_"+str(AccidentArea)] = 1
+    df_model["AccidentArea_"+str(AccidentArea)] = 1
+    return df_model
 
 #testing
-# df_model
+temp_table()
+
+# df_model.dtypes
 
 import pickle
 pkl = open("./XGboost.pkl",'rb')
@@ -203,8 +205,7 @@ import matplotlib.pyplot as plt
 import xgboost
 
 
-
-res = model.predict(df_model)
+res = model.predict(temp_table())
 if res==0:
     st.text('Good news! Your claim will be processed by insurance company')
 else: 
