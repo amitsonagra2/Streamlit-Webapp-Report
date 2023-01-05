@@ -193,7 +193,9 @@ df_model["AccidentArea_"+str(AccidentArea)] = 1
 # df_model
 
 import pickle
-pkl = open("Xgboost.pkl",'rb')
+pkl = open("./XGboost.pkl",'rb')
+# pkl = open("./Xgboost.pkl",'rb')
+# pkl = open("https://github.com/amitusf/Streamlit-Webapp-Report/blob/master/XGboost.pkl",'rb')
 model = pickle.load(pkl)
 
 
